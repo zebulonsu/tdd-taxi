@@ -4,8 +4,10 @@ import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
 
 public class CalculateTest {
     @Test
@@ -60,6 +62,17 @@ public class CalculateTest {
             assertNotNull(e);
         }
 
+    }
+
+    @Test
+    public void appRunTest(){
+        AppRunner appRunner = new AppRunner();
+        List<String> answer = appRunner.readAnswer("testData.txt");
+        for (String item : answer) {
+            Calculate calculate = new Calculate();
+            String receipt = calculate.calculate(item);
+            assertNotNull(receipt);
+        }
     }
 
 }

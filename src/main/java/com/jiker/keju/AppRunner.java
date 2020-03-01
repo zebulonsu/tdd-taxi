@@ -15,7 +15,7 @@ public class AppRunner {
         }
     }
 
-    private static List readAnswer(String testDataFile) {
+    public static List readAnswer(String testDataFile) {
         ReadFileOperator readFileOperator = new ReadFileOperator();
         List<String> answer = new ArrayList<String>();
         try {
