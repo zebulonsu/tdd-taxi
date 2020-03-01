@@ -57,7 +57,7 @@ public class CalculateTest {
         } catch (IOException e) {
             e.printStackTrace();
         }catch(NullPointerException e){
-            e.printStackTrace();
+            assertNotNull(e);
         }
 
     }
