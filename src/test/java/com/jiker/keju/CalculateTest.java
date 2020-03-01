@@ -21,10 +21,10 @@ public class CalculateTest {
     @Test
     public void calculateTest(){
         Calculate calculate = new Calculate();
-        assertEquals(calculate.calculate("1¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ6Ôª");
-        assertEquals(calculate.calculate("3¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ7Ôª");
-        assertEquals(calculate.calculate("10¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ13Ôª");
-        assertEquals(calculate.calculate("2¹«Àï,µÈ´ý3·ÖÖÓ"),"ÊÕ·Ñ7Ôª");
+        assertEquals(calculate.calculate("1å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ"),"æ”¶è´¹6å…ƒ");
+        assertEquals(calculate.calculate("3å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ"),"æ”¶è´¹7å…ƒ");
+        assertEquals(calculate.calculate("10å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ"),"æ”¶è´¹13å…ƒ");
+        assertEquals(calculate.calculate("2å…¬é‡Œ,ç­‰å¾…3åˆ†é’Ÿ"),"æ”¶è´¹7å…ƒ");
     }
 
     @Test
