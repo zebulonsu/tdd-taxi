@@ -2,22 +2,64 @@ package com.jiker.keju;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import static org.junit.Assert.*;
 
 public class CalculateTest {
     @Test
     public void readFile(){
-        String file ="D:\\project\\taxi\\src\\main\\resources\\testData.txt";
+        String file ="testData.txt";
         ReadFileOperator readFileOperator = new ReadFileOperator();
-        assertNotNull(readFileOperator.readFile(file));
+        try {
+            assertNotNull(readFileOperator.readFile(file));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Test
     public void calculateTest(){
         Calculate calculate = new Calculate();
-        assertEquals(calculate.calculate("1å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ\n"),"æ”¶è´¹6å…ƒ"+"\n");
-        assertEquals(calculate.calculate("3å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ\n"),"æ”¶è´¹7å…ƒ"+"\n");
-        assertEquals(calculate.calculate("10å…¬é‡Œ,ç­‰å¾…0åˆ†é’Ÿ\n"),"æ”¶è´¹13å…ƒ"+"\n");
-        assertEquals(calculate.calculate("2å…¬é‡Œ,ç­‰å¾…3åˆ†é’Ÿ\n"),"æ”¶è´¹7å…ƒ"+"\n");
+        assertEquals(calculate.calculate("1¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ6Ôª");
+        assertEquals(calculate.calculate("3¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ7Ôª");
+        assertEquals(calculate.calculate("10¹«Àï,µÈ´ý0·ÖÖÓ"),"ÊÕ·Ñ13Ôª");
+        assertEquals(calculate.calculate("2¹«Àï,µÈ´ý3·ÖÖÓ"),"ÊÕ·Ñ7Ôª");
     }
+
+    @Test
+    public void doCalculateTest(){
+        Calculate calculate = new Calculate();
+        assertNotNull(calculate.disCalculate(1));
+    }
+
+    @Test
+    public void timeCalculateTest(){
+        Calculate calculate = new Calculate();
+        assertNotNull(calculate.timeCalculate(0));
+    }
+
+    @Test
+    public void totalCaculateTest(){
+        Calculate calculate = new Calculate();
+        String [] arr= new String[6];
+        arr[0]="1";
+        arr[5]="2";
+        assertNotNull(calculate.totalCaculate(arr));
+    }
+
+    @Test
+    public void doReadFileTest(){
+        ReadFileOperator readFileOperator = new ReadFileOperator();
+        BufferedReader br=null;
+        try {
+            assertNull(readFileOperator.doReadFile(br));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }

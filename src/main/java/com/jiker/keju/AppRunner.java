@@ -1,16 +1,28 @@
 package com.jiker.keju;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AppRunner {
-
     public static void main(String[] args) {
-        String testDataFile = args[0];
-        ReadFileOperator readFileOperator = new ReadFileOperator();
-        List<String> answer=readFileOperator.readFile(testDataFile);
-        for(String item:answer){
+        AppRunner appRunner = new AppRunner();
+        List<String> answer = appRunner.readAnswer(args[0]);
+        for (String item : answer) {
             Calculate calculate = new Calculate();
-            String receipt=calculate.calculate(item);
-            System.out.println(receipt);}
+            String receipt = calculate.calculate(item);
+            System.out.println(receipt);
+        }
+    }
+
+    private static List readAnswer(String testDataFile) {
+        ReadFileOperator readFileOperator = new ReadFileOperator();
+        List<String> answer = new ArrayList<String>();
+        try {
+            answer = readFileOperator.readFile(testDataFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return answer;
     }
 }

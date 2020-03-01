@@ -8,16 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFileOperator {
-    public List readFile(String file) {
-        String importPath="src/main/resources/"+file;
-        FileReader fr = null;BufferedReader br = null;
+    public List readFile(String file) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("src/main/resources/" + file));
+        ReadFileOperator readFileOperator = new ReadFileOperator();
+        return readFileOperator.doReadFile(br);
+    }
+
+    public List doReadFile(BufferedReader br) throws IOException {
+        String line;
         List<String> content = new ArrayList<String>();
-        try{ fr = new FileReader(importPath);
-            br = new BufferedReader(fr);String line;
-            while((line=br.readLine())!=null){
-                if(!line.trim().equals("")){content.add(line);} }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-            e.printStackTrace(); }return  content;}
+        while ((line = br.readLine()) != null) {
+            if (!line.trim().equals("")) {
+                content.add(line);
+            }
+        }
+        return content;
+    }
+
+
 }
