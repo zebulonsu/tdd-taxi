@@ -5,7 +5,7 @@ public class Calculate {
         String[] arr = this.readArgs(readAnswer);
         int intReturn=0;
         intReturn=this.totalCaculate(arr);
-        return "�շ�" + intReturn + "Ԫ";
+        return "收费" + intReturn + "元";
     }
 
     public double disCalculate(int distance) {
